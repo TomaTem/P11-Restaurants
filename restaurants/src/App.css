@@ -1,0 +1,92 @@
+/* цвета: бежевый #ebd0bf
+желтый: #f8e27f
+коричнево-красный: #ac4f3d
+почти черный #383732
+винный красный #974255
+почти белый #e6e5e1 */
+
+
+.navbar {
+  background-color: #ebd0bf;
+  color: #974255;
+}
+.navbartext {
+  color: #974255;
+  font-weight: 500;
+}
+
+.footer {
+  background-color: #f5f4f0;
+}
+
+.about {
+  color: #383732;
+  margin: 2rem 3rem;
+}
+.textAbout {
+  text-align: justify;
+  padding-top: 1rem;
+}
+
+.cardAbout {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 2rem 0;
+}
+
+.card {
+  width: 25%;
+
+}
+
+
+
+
+
+
+
+
+.checked {
+  text-decoration: line-through;
+}
+
+.main {
+  padding: 0 15%;
+}
+
+.captionList {
+  font-size: 1.3rem;
+}
+
+.captionTask {
+  font-size: 1.1rem;
+  font-weight: normal;
+}
+
+.form-check {
+  display: flex;
+  align-items: center;
+  margin: 0.7rem 0;
+}
+.form-check-label {
+  margin-left: 10px;
+}
+.form-edit {
+  display: flex;
+  align-items: center;
+  width: 100%
+}
+.editBtn {
+  margin-left: 2.25rem;
+  padding: 0 0.4rem;
+  font-size: 0.9rem;
+}
+.deleteBtn {
+  margin-left: 0.25rem;
+  padding: 0 0.438rem;
+  font-size: 0.9rem;
+}
+.none {
+  display: none;
+}
