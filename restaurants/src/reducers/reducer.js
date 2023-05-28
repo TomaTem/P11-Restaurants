@@ -43,6 +43,17 @@ export function reducer(state, action) {
       });
       return {...state, toDoList: newPosts}
     }
+    case 'ADD_ITEM': {
+      const newItem = action.payload;
+      return {...state, list: [...state.list, newItem]};
+    } 
+    case 'DELETE_ITEM': {
+      const id = action.payload;
+      let reducedList = state.list.filter(
+        el => id !== el.id
+      );
+      return {...state, list: reducedList}
+    }
     default: {
       return state
     }

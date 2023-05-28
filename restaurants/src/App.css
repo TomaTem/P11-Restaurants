@@ -5,7 +5,6 @@
 винный красный #974255
 почти белый #e6e5e1 */
 
-
 .navbar {
   background-color: #ebd0bf;
   color: #974255;
@@ -19,7 +18,8 @@
   background-color: #f5f4f0;
 }
 
-.about {
+.about,
+.list {
   color: #383732;
   margin: 2rem 3rem;
 }
@@ -37,8 +37,41 @@
 
 .card {
   width: 25%;
+}
+.listCards {
+  display: flex;
+  justify-content: space-around;
+  margin: 2rem 0;
+}
+.imgList {
+  object-fit: cover;
+  height: 30%;
+}
+.listBtn {
+  display: flex;
+  justify-content: right;
+}
+.addBtn {
+  color: #974255;
+  padding: 0.5rem 2rem;
+  border: solid 0.1rem #ac4f3d;
+  border-radius: 10px;
+  background: #ebd0bf;
+}
+.addBtn:hover {
+  color:#e6e5e1;
+  background: #ac4f3d;
+}
+.addingForm {
+  margin: 1rem 0;
 
 }
+.form-control {
+  margin-top: 1rem;
+  content: " *";
+}
+
+
 
 
 
@@ -75,17 +108,7 @@
 .form-edit {
   display: flex;
   align-items: center;
-  width: 100%
-}
-.editBtn {
-  margin-left: 2.25rem;
-  padding: 0 0.4rem;
-  font-size: 0.9rem;
-}
-.deleteBtn {
-  margin-left: 0.25rem;
-  padding: 0 0.438rem;
-  font-size: 0.9rem;
+  width: 100%;
 }
 .none {
   display: none;

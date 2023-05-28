@@ -5,14 +5,17 @@ import Footer from './components/Footer/Footer';
 import React from 'react';
 import {globalContext as GlobalContext} from './contexts/globalContext';
 import {useLocalStorage} from './hooks/useLS';
+import {useReducer} from 'react';
 import './App.css';
+import List from './components/List/List';
+import Adding from './components/Adding/Adding';
 
 function App() {
   const initialState = {
-    toDoList: [],
+    list: [],
   };
 
-  const [state, dispatch] = useLocalStorage('toDoList', initialState);
+  const [state, dispatch] = useLocalStorage('list', initialState);
 
   return (
     <>
@@ -20,8 +23,10 @@ function App() {
         value={{state, dispatch}}>
         <div>
           <Header />
-          <About />
+          {/* <About /> */}
           {/* <Main /> */}
+          <List />
+          {/* <Adding /> */}
           <Footer />
         </div>
       </GlobalContext.Provider>
