@@ -9,6 +9,8 @@ import {useReducer} from 'react';
 import './App.css';
 import List from './components/List/List';
 import Adding from './components/Adding/Adding';
+import Editing from './components/Editing/Editing';
+import {Routes, Route} from 'react-router-dom';
 
 function App() {
   const initialState = {
@@ -19,14 +21,15 @@ function App() {
 
   return (
     <>
-      <GlobalContext.Provider
-        value={{state, dispatch}}>
+      <GlobalContext.Provider value={{state, dispatch}}>
         <div>
           <Header />
-          {/* <About /> */}
-          {/* <Main /> */}
-          <List />
-          {/* <Adding /> */}
+          <Routes>
+            <Route path='/' element={<About />} />
+            <Route path='/list' element={<List />} />
+            <Route path='/add' element={<Adding />} />
+            <Route path='/edit/:id' element={<Editing />} />
+          </Routes>
           <Footer />
         </div>
       </GlobalContext.Provider>

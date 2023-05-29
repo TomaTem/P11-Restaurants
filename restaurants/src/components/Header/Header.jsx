@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 export default function Header() {
   return (
@@ -8,19 +9,19 @@ export default function Header() {
           <div className='collapse navbar-collapse'>
             <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
               <li className='nav-item'>
-                <a className='nav-link' aria-current='page' href='#'>
+                <Link to='/' className='nav-link' aria-current='page'>
                   О нас
-                </a>
+                </Link>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='#'>
+                <Link className='nav-link' to='/list'>
                   Список ресторанов
-                </a>
+                </Link>
               </li>
               <li className='nav-item'>
-                <a className='nav-link' href='#'>
+                <Link to='/add' className='nav-link'>
                   Добавить новое место
-                </a>
+                </Link>
               </li>
             </ul>
             <span className='navbar-text navbartext'>

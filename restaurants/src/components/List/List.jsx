@@ -1,6 +1,7 @@
 import React from 'react';
 import {useContext} from 'react';
 import {globalContext} from '../../contexts/globalContext';
+import {Link} from 'react-router-dom';
 
 export default function List() {
   const {state, dispatch} = useContext(globalContext);
@@ -30,12 +31,14 @@ export default function List() {
               <p><a class="link-opacity-75" href={item.website}>Сайт ресторана</a></p>
               <p className='card-text'>{item.extra}</p>
               <div className='listBtn'>
+                <Link to={`/edit/${item.id}`}>
                 <button
                   type='button'
                   // onClick={() => editingTask(post.id)}
                   className='btn editBtn'>
                   <i class='fa-regular fa-pen-to-square'></i>
                 </button>
+                </Link>
                 <button
                   type='button'
                   onClick={() => deletingItem(item.id)}

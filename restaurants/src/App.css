@@ -71,7 +71,15 @@
   content: " *";
 }
 
-
+.editing {
+  color: #383732;
+  margin: 2rem 3rem;
+  display: flex;
+  justify-content: center;
+}
+.editForm {
+  width: 60%;
+}
 
 
 
