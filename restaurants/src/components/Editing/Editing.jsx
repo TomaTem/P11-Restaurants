@@ -1,46 +1,64 @@
 import React from 'react';
-import {useParams, Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {globalContext} from '../../contexts/globalContext';
-import {useContext, useState, dispatch} from 'react';
+import {useContext, useState} from 'react';
+import {useNavigate} from 'react-router-dom';
 
 export default function Editing() {
-  const {state} = useContext(globalContext);
+  const {state, dispatch} = useContext(globalContext);
+  const navigate = useNavigate();
   const {id} = useParams();
   const currentCard = state.list.find(el => el.id === +id);
-  console.log(currentCard);
-
-  const {dispatch} = useContext(globalContext);
   const [newName, setNewName] = useState(currentCard.name);
   const [newPicture, setNewPicture] = useState(currentCard.picture);
   const [newAddress, setNewAddress] = useState(currentCard.address);
   const [newWebsite, setNewWebsite] = useState(currentCard.website);
   const [newExtra, setNewExtra] = useState(currentCard.extra);
 
+  function handleSubmit(event) {
+    event.preventDefault();
+    if (/\S+\s*/.test(newName) && /\S+\s*/.test(newAddress)) {
+      dispatch({
+        type: 'EDIT_ITEM',
+        payload: {
+          newName,
+          newPicture,
+          newAddress,
+          newWebsite,
+          newExtra,
+          id: currentCard.id,
+        },
+      });
+      navigate('/list', {replace: true});
+    } else {
+      alert('Название и адрес ресторана должны содержать буквы');
+    }
+  }
+
   return (
     <>
       <div className='container editing'>
-        <div className='card' key={currentCard.id}>
+        <div className='card cardEditing' key={currentCard.id}>
           <img
             src={currentCard.picture}
             className='card-img-top imgList'
-            alt='...'
+            alt='Фотография ресторана'
           />
           <div className='card-body'>
             <h5 className='card-title'>{currentCard.name}</h5>
             <p className='card-text'>{currentCard.address}</p>
             <p>
-              <a class='link-opacity-75' href={currentCard.website}>
-                Сайт ресторана
+              <a className='link-opacity-75' href={currentCard.website}>
+                {currentCard.website}
               </a>
             </p>
             <p className='card-text'>{currentCard.extra}</p>
           </div>
         </div>
 
-        {/* <form className='mx-5' onSubmit={handleSubmit}> */}
-        <form className='mx-5 editForm'>
+        <form className='mx-5 editForm' onSubmit={handleSubmit}>
           <div className='my-5 addingForm'>
-            <h3 className='captionTask'>Добавьте новый ресторан:</h3>
+            <h3 className='captionTask'>Отредактируйте карточку ресторана:</h3>
             <input
               required
               className='form-control '
@@ -69,7 +87,7 @@ export default function Editing() {
               className='form-control '
               id='InputPicture'
               placeholder='Добавьте ссылку на сайт ресторана'
-              pattern='^([a-zA-Z0-9]([a-zA-Z0-9\-]{0,61}[a-zA-Z0-9])?\.)+[a-zA-Z]{2,6}$ ||  [(http(s)?):\/\/(www\.)?\w-/=#%&\.\?]{2,}\.[a-z]{2,}([\w-/=#%&\.\?]*)'
+              pattern='^(https?:\/\/)?(www\.)?([\da-z\.\-]+)\.([a-z\.]{2,6})([\/\w \.\-]*)*\/?$'
               onChange={event => setNewWebsite(event.target.value)}
               value={newWebsite}
             />
@@ -83,11 +101,9 @@ export default function Editing() {
             />
           </div>
           <div className='d-grid gap-2 d-md-flex justify-content-md-end'>
-            <Link to={`/list`}>
-              <button type='submit' className='btn me-md-2 addBtn'>
-                Сохранить изменения
-              </button>
-            </Link>
+            <button type='submit' className='btn me-md-2 addBtn'>
+              Сохранить изменения
+            </button>
           </div>
         </form>
       </div>

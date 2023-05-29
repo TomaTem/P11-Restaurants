@@ -8,7 +8,7 @@ export function useLocalStorage(key, initialValue) {
       savedValue = JSON.parse(
         window.localStorage.getItem(key) || String(initialValue)
       );
-      if (!Array.isArray(savedValue.toDoList)) {
+      if (!Array.isArray(savedValue.list)) {
         savedValue = initialValue;
       }
     } catch (error) {

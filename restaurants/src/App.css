@@ -1,10 +1,3 @@
-/* цвета: бежевый #ebd0bf
-желтый: #f8e27f
-коричнево-красный: #ac4f3d
-почти черный #383732
-винный красный #974255
-почти белый #e6e5e1 */
-
 .navbar {
   background-color: #ebd0bf;
   color: #974255;
@@ -13,13 +6,12 @@
   color: #974255;
   font-weight: 500;
 }
-
 .footer {
   background-color: #f5f4f0;
 }
-
 .about,
-.list {
+.list,
+.editing {
   color: #383732;
   margin: 2rem 3rem;
 }
@@ -27,29 +19,50 @@
   text-align: justify;
   padding-top: 1rem;
 }
-
 .cardAbout {
-  width: 100%;
-  display: flex;
-  justify-content: space-evenly;
-  margin: 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  margin-top: 2rem;
+  margin-bottom: 4rem;
+  column-gap: 5%;
 }
-
-.card {
-  width: 25%;
+.cardList {
+  min-height: 450px;
+  max-height: fit-content;
+  display: flex;
+  margin: 1rem 0;
+  justify-content: space-around;
 }
 .listCards {
-  display: flex;
-  justify-content: space-around;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  align-items: start;
   margin: 2rem 0;
+  column-gap: 2%;
+}
+.cuttedText {
+  display: block;
+  width: 14rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  cursor: pointer;
+}
+.uncuttedText {
+  cursor: pointer;
+}
+.link-opacity-75 {
+  text-decoration: none;
+  color: #383732;
 }
 .imgList {
   object-fit: cover;
-  height: 30%;
+  height: 170px;
 }
 .listBtn {
   display: flex;
   justify-content: right;
+  margin-bottom: 0;
 }
 .addBtn {
   color: #974255;
@@ -59,18 +72,20 @@
   background: #ebd0bf;
 }
 .addBtn:hover {
-  color:#e6e5e1;
+  color: #e6e5e1;
   background: #ac4f3d;
 }
 .addingForm {
   margin: 1rem 0;
-
+}
+.noteAdd {
+  color: #974255;
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 .form-control {
   margin-top: 1rem;
-  content: " *";
 }
-
 .editing {
   color: #383732;
   margin: 2rem 3rem;
@@ -80,44 +95,6 @@
 .editForm {
   width: 60%;
 }
-
-
-
-
-
-
-
-
-.checked {
-  text-decoration: line-through;
-}
-
-.main {
-  padding: 0 15%;
-}
-
-.captionList {
-  font-size: 1.3rem;
-}
-
-.captionTask {
-  font-size: 1.1rem;
-  font-weight: normal;
-}
-
-.form-check {
-  display: flex;
-  align-items: center;
-  margin: 0.7rem 0;
-}
-.form-check-label {
-  margin-left: 10px;
-}
-.form-edit {
-  display: flex;
-  align-items: center;
-  width: 100%;
-}
-.none {
-  display: none;
+.cardEditing {
+  width: 25%;
 }
